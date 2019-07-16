@@ -1,7 +1,6 @@
 #!/usr/bin/env ruby
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), 'lib'))
 
-require 'kimurai'
 require 'dos/spider'
 
 DOS::Spider.new.each_opportunity do |spider, opportunity|

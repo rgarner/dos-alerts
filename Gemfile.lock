@@ -125,6 +125,7 @@ PLATFORMS
 
 DEPENDENCIES
   kimurai!
+  rake!
   rspec!
 
 BUNDLED WITH

@@ -2,6 +2,8 @@ require 'kimurai'
 require 'dos/opportunity'
 
 module DOS
+  ##
+  # Spider open opportunities
   class Spider < Kimurai::Base
     OPEN_OPPORTUNITIES =
       'https://www.digitalmarketplace.service.gov.uk/digital-outcomes-and-specialists/opportunities'\
@@ -35,7 +37,7 @@ module DOS
       self.class.crawl!
     end
 
-    # Overrides Kimurai::Base.config
+    # Overrides Kimurai::Base.config, which has a base class check and is empty if we don't
     class << self
       attr_reader :config
     end
