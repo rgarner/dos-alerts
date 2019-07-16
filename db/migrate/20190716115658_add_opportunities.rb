@@ -8,7 +8,7 @@ class AddOpportunities < ActiveRecord::Migration[5.2]
       t.timestamps
     end
 
-    add_index :opportunities, :original_url
-    add_index :opportunities, :original_id
+    add_index :opportunities, :original_url, unique: true
+    add_index :opportunities, :original_id, unique: true
   end
 end

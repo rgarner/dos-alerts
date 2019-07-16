@@ -21,8 +21,8 @@ ActiveRecord::Schema.define(version: 2019_07_16_115658) do
     t.date "tweeted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["original_id"], name: "index_opportunities_on_original_id"
-    t.index ["original_url"], name: "index_opportunities_on_original_url"
+    t.index ["original_id"], name: "index_opportunities_on_original_id", unique: true
+    t.index ["original_url"], name: "index_opportunities_on_original_url", unique: true
   end
 
 end
