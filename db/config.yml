@@ -1,0 +1,7 @@
+development:
+  adapter: postgresql
+  database: dos_opportunities_development
+
+test: &test
+  adapter: postgresql
+  database: dos_opportunities_test
