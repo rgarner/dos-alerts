@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'dos/spider'
 
 describe DOS::Spider, vcr: { cassette_name: 'fixed-list-of-opps' } do
   subject(:spider) { DOS::Spider.new }

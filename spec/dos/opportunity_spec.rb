@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'dos/opportunity'
 require 'mechanize'
 
 describe DOS::Opportunity, vcr: { cassette_name: 'fixed-list-of-opps' } do

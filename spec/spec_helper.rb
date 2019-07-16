@@ -1,7 +1,8 @@
+ENV['ENV'] = 'test'
+
 require 'rspec'
 require 'vcr'
-
-puts 'vcr config'
+require 'dos'
 
 VCR.configure do |c|
   c.cassette_library_dir = 'spec/cassettes'
