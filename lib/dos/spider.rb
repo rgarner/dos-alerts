@@ -32,6 +32,8 @@ module DOS
     end
 
     def each_opportunity(&block)
+      raise LocalJumpError unless block_given?
+
       self.class.config[:on_opportunity] = block
 
       self.class.crawl!
