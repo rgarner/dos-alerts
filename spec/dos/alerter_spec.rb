@@ -32,8 +32,14 @@ describe DOS::Alerter do
       )
     end
 
-    let(:seen_opportunity) { double('DOS::Opportunity seen', id: published_id, url: '') }
-    let(:new_opportunity)  { double('DOS::Opportunity new', id: new_id, url: '') }
+    let(:other_attrs) do
+      DOS::Opportunity::ATTRIBUTES.each_with_object({}) do |attr, hash|
+        hash[attr] = attr.to_s
+      end
+    end
+
+    let(:seen_opportunity) { double('DOS::Opportunity seen', other_attrs.merge(id: published_id)) }
+    let(:new_opportunity)  { double('DOS::Opportunity new', other_attrs.merge(id: new_id)) }
 
     before do
       allow(spider).to receive(:each_opportunity)

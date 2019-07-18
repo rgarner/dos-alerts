@@ -23,6 +23,14 @@ describe ::Opportunity do
     it 'maps important "original" properties' do
       expect(opportunity.original_id).to eql(10025)
       expect(opportunity.original_url).to eql('https://example.com/opp/10025')
+      expect(opportunity.title).to eql('Title')
+      expect(opportunity.published).to eql(Date.new(2019, 7, 7))
+      expect(opportunity.buyer).to eql('Buyer')
+      expect(opportunity.location).to eql('Location')
+      expect(opportunity.question_deadline).to eql(Date.new(2020, 7, 7))
+      expect(opportunity.closing).to eql(Date.new(2021, 7, 7))
+      expect(opportunity.expected_start_date).to eql(Date.new(2022, 7, 7))
+      expect(opportunity.description).to eql('Description')
     end
 
     it { is_expected.not_to be_published }
