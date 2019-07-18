@@ -1,3 +1,5 @@
+##
+# A persistable opportunity that knows when it's published
 class Opportunity < ActiveRecord::Base
   def published?
     published_at.present?

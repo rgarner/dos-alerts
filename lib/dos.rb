@@ -11,5 +11,6 @@ require 'dos/db'
 require 'dos/spider'
 require 'dos/alerter'
 require 'opportunity'
+require 'dos/publisher/console'
 
 DOS::DB.configure
