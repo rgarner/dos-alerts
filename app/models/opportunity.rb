@@ -5,4 +5,8 @@ class Opportunity < ActiveRecord::Base
       original_url: opportunity.url
     )
   end
+
+  def published?
+    published_at.present?
+  end
 end

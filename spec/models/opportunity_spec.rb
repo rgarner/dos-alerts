@@ -24,5 +24,12 @@ describe ::Opportunity do
       expect(opportunity.original_id).to eql(10025)
       expect(opportunity.original_url).to eql('https://example.com/opp/10025')
     end
+
+    it { is_expected.not_to be_published }
+
+    context 'the published_at date is set' do
+      before { opportunity.update_attribute(:published_at, Time.now) }
+      it     { is_expected.to be_published }
+    end
   end
 end
