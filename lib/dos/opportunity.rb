@@ -29,11 +29,12 @@ module DOS
     end
 
     def text_from_label(label)
-      find_by_label(label).text.strip
+      find_by_label(label)&.text&.strip
     end
 
     def date_from_label(label)
-      Date.parse(text_from_label(label))
+      date_text = text_from_label(label)
+      Date.parse(date_text) if date_text
     end
 
     def find_by_label(label)
