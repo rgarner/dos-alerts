@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2019_07_16_115658) do
   create_table "opportunities", force: :cascade do |t|
     t.string "original_url", null: false
     t.integer "original_id"
-    t.date "published_at"
+    t.datetime "published_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["original_id"], name: "index_opportunities_on_original_id", unique: true

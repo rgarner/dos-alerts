@@ -4,7 +4,7 @@ class AddOpportunities < ActiveRecord::Migration[5.2]
       t.string :original_url, null: false
       t.integer :original_id
 
-      t.date :published_at
+      t.datetime :published_at
       t.timestamps
     end
 
