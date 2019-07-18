@@ -12,3 +12,8 @@ development:
 test: &test
   <<: *default
   database: dos_opportunities_test
+
+production:
+  <<: *default
+  database: dos_opportunities_production
+
