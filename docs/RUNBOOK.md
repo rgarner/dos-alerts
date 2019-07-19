@@ -9,6 +9,13 @@
   - `sudo dokku plugin:install https://github.com/dokku/dokku-postgres.git`
   - `dokku postgres:create dos_opportunities_production`
   - `dokku config:set dos-alerts ENV=production`
+  - You will also need to `dokku config:set` all of 
+    ```
+    DOS_CONSUMER_KEY=
+    DOS_CONSUMER_SECRET=
+    DOS_ALERTS_TOKEN=
+    DOS_ALERTS_SECRET=
+    ```
   - Once the services have been created, you then set the DATABASE_URL environment variable by linking the service, as follows:
     - `dokku postgres:link dos_opportunities_production dos-alerts`
 - Locally:
