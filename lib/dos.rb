@@ -13,5 +13,6 @@ require 'dos/spider'
 require 'dos/alerter'
 require 'opportunity'
 require 'dos/publisher/console'
+require 'dos/publisher/twitter'
 
 DOS::DB.configure

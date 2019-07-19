@@ -17,7 +17,7 @@ namespace :dos do
   namespace :publish do
     desc 'Alert only new tasks'
     task :new do
-      DOS::Alerter.new(DOS::Publisher::Console.new).run
+      DOS::Alerter.new(DOS::Publisher::Twitter.new).run
     end
 
     desc 'Show summaries'
