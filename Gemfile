@@ -8,10 +8,7 @@ source 'https://rubygems.org' do
   gem 'rake'
   gem 'standalone_migrations'
   gem 'twitter'
-
-  group :development do
-    gem 'oauth' # for rake twitter:sign_in only
-  end
+  gem 'oauth' # for rake twitter:sign_in only, but does need to be available in production
 
   group :test do
     gem 'rspec'
