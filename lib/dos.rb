@@ -7,6 +7,7 @@ end
 $LOAD_PATH.unshift(File.join(DOS.root, 'app'))
 $LOAD_PATH.unshift(File.join(DOS.root, 'app', 'models'))
 
+require 'dotenv/load'
 require 'dos/db'
 require 'dos/spider'
 require 'dos/alerter'
