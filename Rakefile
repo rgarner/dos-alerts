@@ -1,17 +1,17 @@
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), 'lib'))
 
-# rubocop:disable Lint/HandleExceptions this is the recommended way to load RSpec
 begin
   require 'rspec/core/rake_task'
   RSpec::Core::RakeTask.new(:spec)
 rescue LoadError
 end
-# rubocop:enable Lint/HandleExceptions
 
-require 'rubocop/rake_task'
-
-RuboCop::RakeTask.new(:rubocop) do |t|
-  t.options = ['--display-cop-names']
+begin
+  require 'rubocop/rake_task'
+  RuboCop::RakeTask.new(:rubocop) do |t|
+    t.options = ['--display-cop-names']
+  end
+rescue LoadError
 end
 
 task default: %i[spec rubocop]

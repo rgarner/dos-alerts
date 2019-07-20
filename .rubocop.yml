@@ -20,3 +20,6 @@ Style/NumericLiterals:
 Lint/UnusedMethodArgument:
   Exclude:
     - lib/dos/spider.rb
+Lint/HandleExceptions:
+  Exclude:
+    - Rakefile
