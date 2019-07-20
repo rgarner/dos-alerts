@@ -28,20 +28,19 @@ module DOS
     def parse_opportunity(response, url:, data: {})
       opportunity = Opportunity.new(response, url)
 
-      self.class.config[:on_opportunity].call(self, opportunity)
+      self.class.on_opportunity.call(self, opportunity)
     end
 
     def each_opportunity(&block)
       raise LocalJumpError unless block_given?
 
-      self.class.config[:on_opportunity] = block
+      self.class.on_opportunity = block
 
       self.class.crawl!
     end
 
-    # Overrides Kimurai::Base.config, which has a base class check and is empty if we don't
     class << self
-      attr_reader :config
+      attr_accessor :on_opportunity
     end
   end
 end
