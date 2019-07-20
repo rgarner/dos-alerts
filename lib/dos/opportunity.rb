@@ -42,6 +42,7 @@ module DOS
       response.at_xpath(selector)
     end
 
+    # rubocop:disable Metrics/AbcSize, Metrics/MethodLength no it really is going to get this big
     def to_h
       @to_h ||= {
         id: @original_url.split('/').last.to_i,
@@ -56,5 +57,6 @@ module DOS
         description: text_from_label('Summary of the work')
       }
     end
+    # rubocop:enable Metrics/AbcSize, Metrics/MethodLength
   end
 end

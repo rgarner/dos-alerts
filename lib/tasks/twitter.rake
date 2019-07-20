@@ -24,7 +24,7 @@ namespace :twitter do
     puts 'Paste your verifier and hit RETURN:'
     verifier = STDIN.gets.chomp
 
-    hash = { oauth_token: request_token.token, oauth_token_secret: request_token.secret}
+    hash = { oauth_token: request_token.token, oauth_token_secret: request_token.secret }
     request_token = OAuth::RequestToken.from_hash(oauth_consumer, hash)
     access_token  = request_token.get_access_token oauth_verifier: verifier
 
@@ -40,7 +40,7 @@ namespace :twitter do
       config.consumer_key        = ENV['DOS_CONSUMER_KEY']
       config.consumer_secret     = ENV['DOS_CONSUMER_SECRET']
       config.access_token        = ENV['DOS_ALERTS_TOKEN']
-      config.access_token_secret = ENV["DOS_ALERTS_SECRET"]
+      config.access_token_secret = ENV['DOS_ALERTS_SECRET']
     end
 
     client.update("I'm tweeting with @gem!")

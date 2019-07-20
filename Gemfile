@@ -4,17 +4,21 @@ source 'https://rubygems.org' do
   gem 'activerecord'
   gem 'dotenv'
   gem 'kimurai'
+  gem 'oauth' # for rake twitter:sign_in only, but does need to be available in production
   gem 'pg'
   gem 'rake'
   gem 'standalone_migrations'
   gem 'twitter'
-  gem 'oauth' # for rake twitter:sign_in only, but does need to be available in production
+
+  group :development, :test do
+    gem 'rubocop'
+  end
 
   group :test do
+    gem 'database_cleaner'
     gem 'rspec'
     gem 'rspec_junit_formatter' # for CircleCI
     gem 'vcr'
     gem 'webmock'
-    gem 'database_cleaner'
   end
 end

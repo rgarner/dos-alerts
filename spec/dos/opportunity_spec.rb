@@ -2,7 +2,9 @@ require 'spec_helper'
 require 'mechanize'
 
 describe DOS::Opportunity, vcr: { cassette_name: 'fixed-list-of-opps' } do
-  let(:url)      { 'https://www.digitalmarketplace.service.gov.uk/digital-outcomes-and-specialists/opportunities/10025' }
+  let(:url) do
+    'https://www.digitalmarketplace.service.gov.uk/digital-outcomes-and-specialists/opportunities/10025'
+  end
   let(:response) { Mechanize.new.get(url) }
 
   subject(:opportunity) do
@@ -19,5 +21,4 @@ describe DOS::Opportunity, vcr: { cassette_name: 'fixed-list-of-opps' } do
   specify { expect(opportunity.closing).to eql(Date.new(2019, 7, 17)) }
   specify { expect(opportunity.expected_start_date).to eql(Date.new(2019, 9, 2)) }
   specify { expect(opportunity.description).to match(/the five councils in Buckinghamshire/) }
-
 end

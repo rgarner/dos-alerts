@@ -1,0 +1,22 @@
+AllCops:
+  Exclude:
+    - db/schema.rb
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Metrics/BlockLength:
+  Exclude:
+    - spec/**/*
+    - lib/tasks/*
+Metrics/LineLength:
+  Max: 120
+Metrics/MethodLength:
+  Exclude:
+    - db/migrate/*.rb
+Style/Documentation:
+  Exclude:
+    - db/migrate/*.rb
+Style/NumericLiterals:
+  Enabled: false
+Lint/UnusedMethodArgument:
+  Exclude:
+    - lib/dos/spider.rb

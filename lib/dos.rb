@@ -1,3 +1,5 @@
+##
+# DOS module that has DOS.root like Rails.root
 module DOS
   def self.root
     File.join(File.dirname(__FILE__), '..')

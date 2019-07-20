@@ -1,4 +1,6 @@
 class Opportunity
+  ##
+  # Format an opportunity for Twitter
   class Formatter
     attr_reader :opportunity
     def initialize(opportunity)
