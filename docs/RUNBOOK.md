@@ -18,6 +18,7 @@
     ```
   - Once the services have been created, you then set the DATABASE_URL environment variable by linking the service, as follows:
     - `dokku postgres:link dos_opportunities_production dos-alerts`
+  - `crontab -e` for `dokku` and schedule `dokku run dos-alerts rake dos:publish:new`
 - Locally:
   - `git remote add dokku dokku@dos-alerts:dos-alerts`
   - `git push dokku master` deploys      
