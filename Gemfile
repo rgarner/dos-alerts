@@ -12,6 +12,7 @@ source 'https://rubygems.org' do
 
   group :test do
     gem 'rspec'
+    gem 'rspec_junit_formatter' # for CircleCI
     gem 'vcr'
     gem 'webmock'
     gem 'database_cleaner'
