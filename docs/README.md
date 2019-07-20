@@ -1,6 +1,8 @@
 [<img src="images/RoboCrown.png" alt="robocrown" width="100"/>](https://twitter.com/dosalerts)
 # DOS Alerts
 
+[![CircleCI](https://circleci.com/gh/rgarner/dos-alerts.svg?style=shield)](https://circleci.com/gh/rgarner/dos-alerts)
+
 Tweets new open opportunities from the Digital Outcomes and Specialists framework
 [opportunities](https://www.digitalmarketplace.service.gov.uk/digital-outcomes-and-specialists/opportunities) page.
 
