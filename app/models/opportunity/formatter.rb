@@ -8,9 +8,9 @@ class Opportunity
     end
 
     ABBREVIATED_TYPES = {
-      'Digital outcomes' => 'Outcomes',
-      'Digital specialists' => 'Specialists',
-      'User research participants' => 'Research'
+      'Digital outcomes' => '#DOSOutcomes',
+      'Digital specialists' => '#DOSSpecialists',
+      'User research participants' => '#DOSResearch'
     }.freeze
 
     def to_s

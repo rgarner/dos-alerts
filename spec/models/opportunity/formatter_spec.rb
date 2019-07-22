@@ -25,7 +25,7 @@ describe Opportunity::Formatter do
     context 'Everything is there' do
       it 'has limited metadata and a summary truncated such that length is not exceeded' do
         expect(formatted).to eql <<~TEXT
-          Specialists
+          #DOSSpecialists
           Buyer
           Title
 
