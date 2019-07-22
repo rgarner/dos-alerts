@@ -10,8 +10,8 @@ Follow [@dosalerts](https://twitter.com/dosalerts) to be kept up-to-date with ne
 
 ## Credits
 
-Robot [icon](http://www.flaticon.com/free-icon/robot_115339) by [freepik](http://www.flaticon.com/authors/freepik),
+- From an idea by [@lexij](https://twitter.com/lexij)
+- Robot [icon](http://www.flaticon.com/free-icon/robot_115339) by [freepik](http://www.flaticon.com/authors/freepik),
 licensed under [CC by 3](https://creativecommons.org/licenses/by/3.0/), modified with 
 [Crown](https://commons.wikimedia.org/wiki/File:Tudor_Rose_Royal_Badge_of_England.svg) by [Sodacan](https://commons.wikimedia.org/wiki/User:Sodacan), same license.
-
-Parsing code stolen shamelessly from @pezholio's work on https://github.com/dxw/marketplace_opportunity_scraper
+- Parsing code stolen shamelessly from [@pezholio](https://twitter.com/pezholio)'s work on [https://github.com/dxw/marketplace_opportunity_scraper](https://github.com/dxw/marketplace_opportunity_scraper)
