@@ -63,6 +63,7 @@ module DOS
       @to_h ||= {
         id: @original_url.split('/').last.to_i,
         type: type,
+        role: role,
         url: @original_url,
         title: response.xpath('//header/h1').text,
         published: date_from_label('Published'),
