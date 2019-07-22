@@ -7,8 +7,15 @@ class Opportunity
       @opportunity = opportunity
     end
 
+    ABBREVIATED_TYPES = {
+      'Digital outcomes' => 'Outcomes',
+      'Digital specialists' => 'Specialists',
+      'User research participants' => 'Research'
+    }.freeze
+
     def to_s
       <<~TEXT
+        #{ABBREVIATED_TYPES.fetch(opportunity.type)}
         #{opportunity.buyer}
         #{opportunity.title}
 

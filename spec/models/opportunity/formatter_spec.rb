@@ -7,6 +7,7 @@ describe Opportunity::Formatter do
     let(:opportunity) do
       ::Opportunity.new(
         original_id: 10025,
+        type: 'Digital specialists',
         original_url: 'https://example.com/opp/10025',
         title: 'Title',
         published: Date.new(2019, 7, 7),
@@ -24,6 +25,7 @@ describe Opportunity::Formatter do
     context 'Everything is there' do
       it 'has limited metadata and a summary truncated such that length is not exceeded' do
         expect(formatted).to eql <<~TEXT
+          Specialists
           Buyer
           Title
 
