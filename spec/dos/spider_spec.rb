@@ -14,7 +14,7 @@ describe DOS::Spider, vcr: { cassette_name: 'fixed-list-of-opps' } do
       let(:opportunities) { [] }
 
       before do
-        spider.each_opportunity do |opportunity|
+        spider.each_opportunity do |_spider, opportunity|
           opportunities << opportunity
         end
       end
