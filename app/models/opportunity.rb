@@ -1,6 +1,16 @@
 ##
 # A persistable opportunity that knows when it's published
 class Opportunity < ActiveRecord::Base
+  self.inheritance_column = :_type_disabled
+
+  TYPES = [
+    'Digital outcomes',
+    'Digital specialists',
+    'User research participants'
+  ].freeze
+
+  validates :type, inclusion: { in: TYPES }
+
   def published?
     published_at.present?
   end

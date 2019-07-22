@@ -28,6 +28,7 @@ describe DOS::Alerter do
       ::Opportunity.create(
         original_id: published_id,
         original_url: 'http://example.com/10025',
+        type: 'Digital outcomes',
         published_at: Time.now
       )
     end
@@ -35,6 +36,7 @@ describe DOS::Alerter do
     let(:other_attrs) do
       DOS::Opportunity::ATTRIBUTES.each_with_object({}) do |attr, hash|
         hash[attr] = attr.to_s
+        hash[:type] = 'Digital outcomes'
       end
     end
 

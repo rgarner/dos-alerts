@@ -6,6 +6,8 @@ describe ::Opportunity do
       double(
         'DOS::Opportunity',
         id: 10025,
+        type: 'Digital outcomes',
+        role: nil,
         url: 'https://example.com/opp/10025',
         title: 'Title',
         published: Date.new(2019, 7, 7),

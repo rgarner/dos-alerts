@@ -6,6 +6,8 @@ module DOS
 
     ATTRIBUTES = %i[
       id
+      type
+      role
       url
       title
       buyer
@@ -42,10 +44,25 @@ module DOS
       response.at_xpath(selector)
     end
 
+    def type
+      @type ||= if role.present?
+                  'Digital specialists'
+                elsif text_from_label('Description of your participants').present?
+                  'User research participants'
+                else
+                  'Digital outcomes'
+                end
+    end
+
+    def role
+      @role ||= text_from_label('Specialist role')
+    end
+
     # rubocop:disable Metrics/AbcSize, Metrics/MethodLength no it really is going to get this big
     def to_h
       @to_h ||= {
         id: @original_url.split('/').last.to_i,
+        type: type,
         url: @original_url,
         title: response.xpath('//header/h1').text,
         published: date_from_label('Published'),
