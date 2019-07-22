@@ -23,9 +23,15 @@ namespace :dos do
 
     desc 'Show summaries'
     task :summaries do
-      ::Opportunity.all.each do |opportunity|
+      opps = ::Opportunity.all.map do |opportunity|
         formatted = ::Opportunity::Formatter.new(opportunity).to_s
-        puts "********************************************(#{formatted.length})*****\n\n#{formatted}\n"
+        formatted.sub! %r{https://.*$}, 'https://t.co/0123456789'
+        { length: formatted.length, body: formatted }
+      end
+
+      opps.sort { |a, b| a[:length] > b[:length] ? 1 : -1 }.each do |opp|
+        puts "**************************************************(#{opp[:length]})"
+        puts opp[:body]
       end
     end
   end
