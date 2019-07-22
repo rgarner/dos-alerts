@@ -1,16 +1,17 @@
 require 'dos'
 
 namespace :dos do
-  desc 'Scrape the DOS site and save results locally'
-  task :scrape do
-    DOS::Spider.new.each_opportunity do |_spider, opportunity|
-      if ::Opportunity.exists?(original_id: opportunity.id)
-        warn "Seen #{opportunity.id}, skipping"
-        next
-      end
+  desc "Rescrape things we've already seen to backfill attrs we didn't have then"
+  task :rescrape do
+    require 'mechanize'
 
-      new_opportunity = ::Opportunity.from_scraped(opportunity)
-      new_opportunity.save!
+    agent = Mechanize.new
+
+    ::Opportunity.all.each do |opportunity|
+      response = agent.get(opportunity.original_url)
+      scraped = DOS::Opportunity.new(response, opportunity.original_url)
+      relevant_attrs = DOS::Opportunity::ATTRIBUTES - %i[id url]
+      opportunity.update_attributes!(scraped.to_h.slice(*relevant_attrs))
     end
   end
 
