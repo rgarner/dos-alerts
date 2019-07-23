@@ -16,7 +16,9 @@ class Opportunity
     def to_s
       <<~TEXT
         #{ABBREVIATED_TYPES.fetch(opportunity.type)}
+
         #{opportunity.buyer}
+        --
         #{opportunity.title}
 
         #{opportunity.location}

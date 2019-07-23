@@ -26,7 +26,9 @@ describe Opportunity::Formatter do
       it 'has limited metadata and a summary truncated such that length is not exceeded' do
         expect(formatted).to eql <<~TEXT
           #DOSSpecialists
+
           Buyer
+          --
           Title
 
           Location
