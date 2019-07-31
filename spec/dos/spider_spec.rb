@@ -13,14 +13,35 @@ describe DOS::Spider, vcr: { cassette_name: 'fixed-list-of-opps' } do
     context 'a block is given' do
       let(:opportunities) { [] }
 
-      before do
-        spider.each_opportunity do |_spider, opportunity|
-          opportunities << opportunity
+      context 'and no opportunities have already been seen' do
+        before do
+          spider.each_opportunity do |_spider, opportunity|
+            opportunities << opportunity
+          end
+        end
+
+        it 'yields each open opportunity' do
+          expect(opportunities.count).to eql(35)
         end
       end
 
-      it 'yields each open opportunity' do
-        expect(opportunities.count).to eql(35)
+      context 'and some opportunities have already been seen' do
+        let!(:seen1) { create :opportunity, :infer_url_from_id, original_id: 9998 }
+        let!(:seen2) { create :opportunity, :infer_url_from_id, original_id: 10018 }
+
+        let(:dos_ids) { opportunities.map(&:id) }
+
+        before do
+          spider.each_opportunity do |_spider, opportunity|
+            opportunities << opportunity
+          end
+        end
+
+        it 'yields only the unseen open opportunities' do
+          expect(dos_ids).not_to include(9998)
+          expect(dos_ids).not_to include(10018)
+          expect(opportunities.count).to eql(33)
+        end
       end
     end
   end

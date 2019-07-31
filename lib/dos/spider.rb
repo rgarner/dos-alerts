@@ -19,7 +19,9 @@ module DOS
 
     def parse(response, url:, data: {})
       response.css('.search-result a').each do |a|
-        request_to :parse_opportunity, url: absolute_url(a[:href], base: url)
+        opportunity_url = absolute_url(a[:href], base: url)
+        already_seen = ::Opportunity.exists?(original_url: opportunity_url)
+        request_to :parse_opportunity, url: opportunity_url unless already_seen
       end
 
       next_page = response.at_css('li.next a')
