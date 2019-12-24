@@ -67,7 +67,7 @@ module DOS
         url: @original_url,
         title: response.xpath('//header/h1').text,
         published: date_from_label('Published'),
-        buyer: response.at('.context').text,
+        buyer: text_from_label('Organisation the work is for'),
         location: text_from_label('Location'),
         question_deadline: date_from_label('Deadline for asking questions'),
         closing: date_from_label('Closing date for applications'),
