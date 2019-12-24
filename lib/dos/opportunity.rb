@@ -61,11 +61,11 @@ module DOS
     # rubocop:disable Metrics/AbcSize, Metrics/MethodLength no it really is going to get this big
     def to_h
       @to_h ||= {
-        id: @original_url.split('/').last.to_i,
+        id: original_url.split('/').last.to_i,
         type: type,
         role: role,
-        url: @original_url,
-        title: response.xpath('//header/h1').text,
+        url: original_url,
+        title: response.at_css('main h1.govuk-heading-l').text,
         published: date_from_label('Published'),
         buyer: text_from_label('Organisation the work is for'),
         location: text_from_label('Location'),

@@ -45,11 +45,12 @@ describe DOS::Opportunity, vcr: { cassette_name: 'fixed-list-of-opps' } do
     specify { expect(opportunity.type).to eql('User research participants') }
   end
 
-  context 'the opportunity falls over dereferencing buyer attribute' do
+  context 'the opportunity format changed; falls over dereferencing buyer attribute, title broke' do
     let(:url) do
       'https://www.digitalmarketplace.service.gov.uk/digital-outcomes-and-specialists/opportunities/11438'
     end
 
     specify { expect(opportunity.buyer).to eql('Department for Digital, Culture, Media & Sport') }
+    specify { expect(opportunity.title).to eql('End user Compute engineer') }
   end
 end
