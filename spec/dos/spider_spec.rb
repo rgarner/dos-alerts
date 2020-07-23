@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe DOS::Spider, vcr: { cassette_name: 'fixed-list-of-opps' } do
+describe DOS::Spider, vcr: { cassette_name: 'fixed-list-of-opps', record: :new_episodes } do
   subject(:spider) { DOS::Spider.new }
 
   describe '#each_opportunity' do
@@ -21,13 +21,13 @@ describe DOS::Spider, vcr: { cassette_name: 'fixed-list-of-opps' } do
         end
 
         it 'yields each open opportunity' do
-          expect(opportunities.count).to eql(14)
+          expect(opportunities.count).to eql(18)
         end
       end
 
       context 'and some opportunities have already been seen' do
-        let!(:seen1) { create :opportunity, :infer_url_from_id, original_id: 11388 }
-        let!(:seen2) { create :opportunity, :infer_url_from_id, original_id: 11390 }
+        let!(:seen1) { create :opportunity, :infer_url_from_id, original_id: 12733 }
+        let!(:seen2) { create :opportunity, :infer_url_from_id, original_id: 12757 }
 
         let(:dos_ids) { opportunities.map(&:id) }
 
@@ -38,9 +38,9 @@ describe DOS::Spider, vcr: { cassette_name: 'fixed-list-of-opps' } do
         end
 
         it 'yields only the unseen open opportunities' do
-          expect(dos_ids).not_to include(11388)
-          expect(dos_ids).not_to include(11390)
-          expect(opportunities.count).to eql(12)
+          expect(dos_ids).not_to include(12733)
+          expect(dos_ids).not_to include(12757)
+          expect(opportunities.count).to eql(16)
         end
       end
     end

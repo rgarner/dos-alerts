@@ -40,8 +40,7 @@ module DOS
     end
 
     def find_by_label(label)
-      selector = "//td[@class='summary-item-field-first']/span[text()='#{label}']/../../td[@class='summary-item-field']"
-      response.at_xpath(selector)
+      response.at_css("dt.govuk-summary-list__key:contains('#{label}') + dd")
     end
 
     def type
