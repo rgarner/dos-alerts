@@ -21,13 +21,13 @@ describe DOS::Spider, vcr: { cassette_name: 'fixed-list-of-opps', record: :new_e
         end
 
         it 'yields each open opportunity' do
-          expect(opportunities.count).to eql(18)
+          expect(opportunities.count).to eql(28)
         end
       end
 
       context 'and some opportunities have already been seen' do
-        let!(:seen1) { create :opportunity, :infer_url_from_id, original_id: 12733 }
-        let!(:seen2) { create :opportunity, :infer_url_from_id, original_id: 12757 }
+        let!(:seen1) { create :opportunity, :infer_url_from_id, original_id: 13192 }
+        let!(:seen2) { create :opportunity, :infer_url_from_id, original_id: 13173 }
 
         let(:dos_ids) { opportunities.map(&:id) }
 
@@ -38,9 +38,9 @@ describe DOS::Spider, vcr: { cassette_name: 'fixed-list-of-opps', record: :new_e
         end
 
         it 'yields only the unseen open opportunities' do
-          expect(dos_ids).not_to include(12733)
-          expect(dos_ids).not_to include(12757)
-          expect(opportunities.count).to eql(16)
+          expect(dos_ids).not_to include(13192)
+          expect(dos_ids).not_to include(13173)
+          expect(opportunities.count).to eql(26)
         end
       end
     end

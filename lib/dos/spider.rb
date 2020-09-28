@@ -18,7 +18,7 @@ module DOS
     }
 
     def parse(response, url:, data: {})
-      response.css('.search-result a').each do |a|
+      response.css('.app-search-result a').each do |a|
         opportunity_url = absolute_url(a[:href], base: url)
         already_seen = ::Opportunity.exists?(original_url: opportunity_url)
         request_to :parse_opportunity, url: opportunity_url unless already_seen
